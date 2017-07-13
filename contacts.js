@@ -1,3 +1,5 @@
+var fs = require("fs");
+
 let allContacts = [];
 let contactData = ([{
   "first_name": "Tanny",
@@ -87,7 +89,6 @@ const addContact = function(firstName, lastName, email) {
   contact.first_name = firstName;
   contact.last_name = lastName;
   contact.email = email;
-  console.log(contact)
   contactData.push(contact)
 }
 
@@ -108,11 +109,17 @@ const addContacts = function(contactData) {
 
 const printContacts= function(contacts) {
   //console.log('printContacts:', 'TODO');
-  console.log("Loading contact data...");
-  process.stdout.write("...Finished loading contact data.");
+  var data = fs.writeFile('contacts.txt', 'Loading contact data... ...Finished loading contact data.', (err) => {
+    if (err) throw err;
+    //console.log('The file has been saved!');
+    console.log(allContacts);
+  });
+
+  //console.log("Loading contact data...");
+  //console.log("...Finished loading contact data.");
 
 
-  console.log("Full Name           | Email");
+  //console.log("Full Name           | Email");
   console.log(allContacts);
 }
 
