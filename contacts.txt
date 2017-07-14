@@ -1,7 +1,6 @@
 Loading contact data...
 ...Finished loading contact data.
-All Contacts
-----------------------+--------------------------------
+----------
 |Ambrose Scullard  |ascullard6@timesonline.co.uk
 ,|Charil Clegg  |cclegge@weibo.com
 ,|Conroy Honsch  |chonsch3@sohu.com
