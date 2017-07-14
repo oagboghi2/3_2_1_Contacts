@@ -98,32 +98,31 @@ addContact("John", "Doe", "fakeNews@gmail.com");
 const addContacts = function(contactData) {
   console.log('addContacts:', 'TODO')
   for(var i = 0; i < contactData.length; i++){
-    allContacts.push(contactData[i].first_name + ' ' + contactData[i].last_name + '  |' + contactData[i].email);
-    //allContacts.push(contactData[i].email)
-  //var full_name = contactData[i].first_name + '|' + contactData[i].last_name + '|' + contactData[i].email;
-  }
+
+    allContacts.push("|" + contactData[i].first_name + ' ' + contactData[i].last_name + '  |' + contactData[i].email + "\n");
+   }
   allContacts.sort();
-  //console.log(allContacts);
   return allContacts;
 }
 
 const printContacts= function(contacts) {
   //console.log('printContacts:', 'TODO');
-  var data = fs.writeFile('contacts.txt', 'Loading contact data... ...Finished loading contact data.', (err) => {
-    if (err) throw err;
-    //console.log('The file has been saved!');
-    console.log(allContacts);
+  let first_line = "Loading contact data..." + "\n" + "...Finished loading contact data." + "\n";
+  let top_line = "All Contacts" + "\n" + "----------------------+--------------------------------" + "\n";
+  var intro = fs.writeFile('contacts.txt', first_line, (err) => {
   });
+  var top = fs.appendFile('contacts.txt', top_line, (err) => {
+  });
+  for(var i = 0; i < allContacts.length; i++){
+        let allContactsString = allContacts.toString();
+        var data = fs.appendFile('contacts.txt', allContactsString, (err) => {
+          if (err) throw err;
+        });
+        return allContacts.toString();
+      }
 
-  //console.log("Loading contact data...");
-  //console.log("...Finished loading contact data.");
-
-
-  //console.log("Full Name           | Email");
-  console.log(allContacts);
+  console.log(first_line);
 }
-
-
 
 
 ////////
